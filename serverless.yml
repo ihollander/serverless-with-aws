@@ -3,8 +3,8 @@ service: serverless
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: femasters
-  region: us-west-1
+  profile: serverless-admin
+  region: us-east-1
   stage: dev
 
 plugins:
@@ -24,7 +24,6 @@ functions:
       - http: 
           path: /todos
           method: get
-          cors: true
     
   todo:
     handler: src/api/todo.handler
@@ -32,7 +31,6 @@ functions:
       - http: 
           path: /todos/{id}
           method: get
-          cors: true
           request:
             parameters:
               paths:
